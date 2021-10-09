@@ -1,0 +1,61 @@
+{{ block title }}
+アンケート
+{{ endblock }}
+{{ block content }}
+
+<label for="file">進行状況:</label>
+
+<progress id="file" max="100" value="14"> 14% </progress>
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>属性アンケート</title>
+        <link rel="stylesheet" type="text/css" href="">
+    </head>
+    <body>
+        <p>
+            例）女性　３年生　理系　の場合、選択肢は上から「右、左、右」になります。
+        </p>
+        <p>性別を答えたくない場合は　無回答　を選択してください。</p>
+
+    </body>
+    <table class="table table-striped">
+        <tr>
+            <th></th>
+            <th>男性</th>
+            <th>女性</th>
+            <th>無回答</th>
+            
+        </tr>
+        <tr>
+            <th></th>
+            <th>3年生</th>
+            <th>4年生</th>
+        
+            
+        </tr>
+        <tr>
+            <th></th>
+            <th>文系</th>
+            <th>理系</th>
+        
+            
+        </tr>
+        {{ for field in form }}
+        <tr>
+            <th>{{ field.label }}</th>
+            {{ for option in field }}
+            <td>{{ option }}</td>
+            {{ endfor }}
+        </tr>
+        {{ endfor }}
+    </table>
+
+
+    
+    </body>
+</html>
+{{ next_button }}
+{{ endblock }}
